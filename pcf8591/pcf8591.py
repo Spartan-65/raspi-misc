@@ -30,8 +30,8 @@ def write(val):
 if __name__ == "__main__":
     setup(0x48)
     while True:
-        print ('AIN0 = ' + str(read(0)))
-        print ('AIN1 = ' + str(read(1)))
+        print ('AIN0 = ' + str(read(0)), end = ' ')
+        print ('AIN1 = ' + str(read(1)), end = ' ')
         print ('AIN2 = ' + str(read(2)))
         tmp = read(1)
         tmp = tmp*(255-125)/255+125
