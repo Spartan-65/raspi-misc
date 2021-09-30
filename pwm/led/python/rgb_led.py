@@ -32,6 +32,15 @@ def off():
     for i in pins:
         GPIO.output(pins[i], GPIO.HIGH)
 
+def blinkColor(col):
+    count = 10
+    while count > 0:
+        setColor(col)
+        time.sleep(0.2)
+        setColor(colors[0])
+        time.sleep(0.2)
+        count -= 1
+
 def setColor(col):
     R_val = (col & 0xff0000) >> 16
     G_val = (col & 0x00ff00) >> 8
