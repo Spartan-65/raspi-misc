@@ -54,6 +54,5 @@ if __name__ == '__main__':
     # GPIO.cleanup()
     try:
         loop()
-        loop()
     except KeyboardInterrupt:
         destroy()
