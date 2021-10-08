@@ -32,15 +32,6 @@ def off():
     for i in pins:
         GPIO.output(pins[i], GPIO.HIGH)
 
-def blinkColor(col):
-    count = 10
-    while count > 0:
-        setColor(col)
-        time.sleep(0.2)
-        setColor(colors[0])
-        time.sleep(0.2)
-        count -= 1
-
 def setColor(col):
     R_val = (col & 0xff0000) >> 16
     G_val = (col & 0x00ff00) >> 8
@@ -67,6 +58,8 @@ def destroy():
     off()
     GPIO.cleanup()
 
+
+
 if __name__ == '__main__':
     # GPIO.cleanup()
     try:
@@ -74,3 +67,19 @@ if __name__ == '__main__':
         loop()
     except KeyboardInterrupt:
         destroy()
+
+
+def blinkColor(col):
+    colors = [0xFF0000, 0x00FF00, 0x0000FF, 0xFFFF00, 0xFF00FF, 0x00FFFF]
+    R = 11
+    G = 12
+    B = 13
+    setup(R, G, B)
+    count = 30
+    while count > 0:
+        setColor(col)
+        time.sleep(0.2)
+        setColor(colors[0])
+        time.sleep(0.2)
+        count -= 1
+    destroy()
