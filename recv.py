@@ -4,7 +4,7 @@ import _thread
 import os
 from socket import *
 
-record_flag = True
+record_flag = False
 
 def recAlert():
     global record_flag
